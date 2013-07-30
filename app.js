@@ -21,8 +21,10 @@ var cfg = {
 };
 
 var app = require('./lib/CIProxy');
-app.init(cfg);
-app.start();
+db.open(function() {
+    app.init(cfg);
+    app.start()
+});
 
 /*
 setTimeout(function() {
